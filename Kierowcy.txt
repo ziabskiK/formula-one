@@ -1,0 +1,57 @@
+1;Pizzonia;Antonio;Brazylia
+2;Sutil;Adrian;Niemcy
+3;Wurz;Alexander;Austria
+4;Senna;Bruno;Brazylia
+5;Albers;Christijan;Holandia
+6;da Matta;Cristiano;Brazylia
+7;Klien;Christian;Austria
+8;Coulthard;David;Szkocja
+9;Ricciardo;Daniel;Australia
+10;Irvine;Eddie;Irlandia
+11;Alonso;Fernando;Hiszpania
+12;Massa;Felipe;Brazylia
+13;Fisichella;Giancarlo;Wlochy
+14;Frentzen;Heinz-Harald;Niemcy
+15;Kovalainen;Heikki;Finlandia
+16;Alesi;Jean;Francja
+17;Alguersuari;Jaime;Hiszpania
+18;Button;Jenson;Wielka Brytania
+19;Montoya;Juan Pablo;Kolumbia
+20;Trulli;Jarno;Wlochy
+21;Vergne;Jean-Eric;Francja
+22;Verstappen;Jos;Holandia
+23;Villeneuve;Jacques;Kanada
+24;Wilson;Justin;Wielka Brytania
+25;Kobayashi;Kamui;Japonia
+26;Raikkonen;Kimi;Finlandia
+27;Hamilton;Lewis;Wielka Brytania
+28;Gene;Marc;Hiszpania
+29;Hakkinen;Mika;Finlandia
+30;Salo;Mika;Finlandia
+31;Schumacher;Michael;Niemcy
+32;Webber;Mark;Australia
+33;Heidfeld;Nick;Niemcy
+34;Hulkenberg;Nico;Niemcy
+35;Karthikeyan;Narain;Indie
+36;Rosberg;Nico;Niemcy
+37;Panis;Olivier;Francja
+38;de la Rosa;Pedro;Hiszpania
+39;di Resta;Paul;Wielka Brytania
+40;Friesacher;Patrick;Austria
+41;Maldonado;Pastor;Wenezuela
+42;Barrichello;Rubens;Brazylia
+43;Firman;Ralph;Wielka Brytania
+44;Grosjean;Romain;Francja
+45;Kubica;Robert;Polska
+46;Schumacher;Ralf;Niemcy
+47;Zonta;Ricardo;Brazylia
+48;Bourdais;Sebastien;Francja
+49;Buemi;Sebastien;Szwajcaria
+50;Perez;Sergio;Meksyk
+51;Vettel;Sebastian;Niemcy
+52;Glock;Timo;Niemcy
+53;Monteiro;Tiago;Portugalia
+54;Sato;Takuma;Japonia
+55;Liuzzi;Vitantonio;Wlochy
+56;Petrov;Vitaly;Rosja
+57;Baumgartner;Zsolt;Wegry
