@@ -4,33 +4,35 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import pl.ziabski.app.data_model.Driver;
 import pl.ziabski.app.service.DriverServiceImplementation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.when;
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@SpringBootTest
 @RunWith(SpringRunner.class)
-@WebMvcTest(value = DriverController.class)
+@AutoConfigureMockMvc
 public class DriverControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
     @MockBean
-    private DriverServiceImplementation driverService;
+    private DriverServiceImplementation service;
+
     @Test
     public void getDrivers() throws Exception{
 
@@ -49,17 +51,16 @@ public class DriverControllerTest {
         drivers.add(driver1);
         drivers.add(driver2);
 
-        String uri = "/api/driver";
-        when(driverService.findAll()).thenReturn(drivers);
 
-        String input = this.toJson(drivers);
+        ObjectMapper mapper = new ObjectMapper();
 
-        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON);
-        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
-        String output = result.getRequest().getContentAsString();
+        given(service.findAll()).willReturn(drivers);
+        this.mockMvc.perform(get("/api/driver"))
+                .andExpect(status().isOk())
+                .andExpect(content().json(mapper.writeValueAsString(drivers)));
 
-        assertThat(input, is(output));
+
     }
 
     @Test
@@ -70,8 +71,5 @@ public class DriverControllerTest {
     public void deleteDriver() {
     }
 
-    private String toJson(Object o) throws Exception{
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.writeValueAsString(o);
-    }
+
 }

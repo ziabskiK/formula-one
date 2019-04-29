@@ -1,10 +1,8 @@
 package pl.ziabski.app.api;
 
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.ziabski.app.data_model.Driver;
-import pl.ziabski.app.service.DriverService;
 import pl.ziabski.app.service.DriverServiceImplementation;
 
 import java.util.List;

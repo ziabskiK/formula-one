@@ -7,7 +7,7 @@ import pl.ziabski.app.repository.DriverRepository;
 import java.util.List;
 
 @Service
-public class DriverServiceImplementation implements DriverService {
+public class DriverServiceImplementation  {
 
     private DriverRepository repository;
 
@@ -15,17 +15,17 @@ public class DriverServiceImplementation implements DriverService {
         this.repository = repository;
     }
 
-    @Override
+
     public List<Driver> findAll() {
         return repository.findAll();
     }
 
-    @Override
+
     public Driver addNewDriver(Driver driver) {
         return repository.save(driver);
     }
 
-    @Override
+
     public void delete(int id) {
         repository.deleteById(id);
     }
