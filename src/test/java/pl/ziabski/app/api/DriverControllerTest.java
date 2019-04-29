@@ -5,8 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -20,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -72,13 +70,13 @@ public class DriverControllerTest {
         driver1.setCountry("GB");
 
 
-        //given(this.service.createOrUpdate(driver1)).willReturn(new Driver("Lewis", "Hamilton", "GB"));
+
 
         this.mockMvc.perform(post("/api/driver")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapToJson(driver1)))
                 .andExpect(status().isOk());
-//                .andExpect(content().json(mapToJson(driver1)));
+
 
 
     }
@@ -89,8 +87,6 @@ public class DriverControllerTest {
         driver.setId(1);
 
        when(service.findDriverById(driver.getId())).thenReturn(Optional.of(driver));
-//        doNothing().when(service).delete(driver.getId());
-
 
         this.mockMvc.perform(delete("/api/driver/{id}", driver.getId())).andExpect(status().isOk());
 
