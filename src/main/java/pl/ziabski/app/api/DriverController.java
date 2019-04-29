@@ -6,10 +6,12 @@ import pl.ziabski.app.data_model.Driver;
 import pl.ziabski.app.service.DriverServiceImplementation;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
 public class DriverController {
+
 
 
     private DriverServiceImplementation service;
@@ -25,7 +27,7 @@ public class DriverController {
 
     @PostMapping(value = "/driver", consumes = "application/json", produces = "application/json")
     public Driver addNewDriver(@RequestBody Driver d){
-         return service.addNewDriver(d);
+         return service.createOrUpdate(d);
     }
 
     @RequestMapping(value = "/driver/{id}", method = RequestMethod.DELETE)
@@ -33,4 +35,21 @@ public class DriverController {
         service.delete(id);
     }
 
+    @GetMapping("/driver/{id}")
+    public Optional<Driver> findDriverById(@PathVariable int id){
+        return service.findDriverById(id);
+    }
+
+    @PutMapping("/driver/{id}")
+    public Driver updateDriver(@PathVariable int id, @RequestBody Driver driver){
+        return service.findDriverById(id).map(driver1 -> {
+            driver1.setFirstName(driver.getFirstName());
+            driver1.setLastName(driver.getFirstName());
+            driver1.setCountry(driver.getCountry());
+            return service.createOrUpdate(driver1);
+        }).orElseGet(() -> {
+            driver.setId(id);
+            return service.createOrUpdate(driver);
+        });
+    }
 }

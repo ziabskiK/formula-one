@@ -5,6 +5,7 @@ import pl.ziabski.app.data_model.Driver;
 import pl.ziabski.app.repository.DriverRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DriverServiceImplementation  {
@@ -21,7 +22,7 @@ public class DriverServiceImplementation  {
     }
 
 
-    public Driver addNewDriver(Driver driver) {
+    public Driver createOrUpdate(Driver driver) {
         return repository.save(driver);
     }
 
@@ -29,4 +30,13 @@ public class DriverServiceImplementation  {
     public void delete(int id) {
         repository.deleteById(id);
     }
+    public Optional<Driver> findDriverById(int id){
+        if (repository.findById(id).isPresent()){
+            return repository.findById(id);
+        } else {
+            throw new RuntimeException("Could not find driver ID: "+ id);
+        }
+    }
+
+
 }
