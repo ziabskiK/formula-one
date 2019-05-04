@@ -3,14 +3,13 @@ package pl.ziabski.app.data_model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @Data
+@Table(name = "race")
 public class Race {
 
     @Id
@@ -21,8 +20,11 @@ public class Race {
 
     private String grandPrix;
 
-    public Race(String raceYear, String grandPrix) {
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "scores", joinColumns = @JoinColumn(name = "race_id"), inverseJoinColumns = @JoinColumn(name = "driver_id"))
+    private List<Driver> drivers;
 
+    public Race(String raceYear, String grandPrix) {
         this.raceYear = raceYear;
         this.grandPrix = grandPrix;
     }

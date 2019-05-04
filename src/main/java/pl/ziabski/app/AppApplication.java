@@ -25,16 +25,27 @@ public class AppApplication {
 
     @Bean
     CommandLineRunner runner(@Autowired DriverServiceImplementation repository, @Autowired RaceService raceService) {
+        /**
+         * Create BufferedReaders for data files. Create new database rows.
+         *
+         */
         return args -> {
-            try (BufferedReader driversReader = new BufferedReader(new FileReader("Kierowcy.txt"));
-                    BufferedReader scoresReader = new BufferedReader(new FileReader("Wyscigi.txt"))) {
+            try (BufferedReader driversReader = new BufferedReader(new FileReader("Drivers.txt"));
+                    BufferedReader raceReader = new BufferedReader(new FileReader("Races.txt"));
+                    BufferedReader scoresReader = new BufferedReader(new FileReader("Scores.txt"))) {
                 driversReader.lines().forEach(line -> {
                     String[] driver = line.split(";");
                     repository.createOrUpdate(new Driver(driver[1], driver[2], driver[3]));
                 });
-                scoresReader.lines().forEach(line -> {
+                raceReader.lines().forEach(line -> {
+                    String[] races = line.split(";");
+                    raceService.createOrUpdate(new Race(races[1],races[2]));
+
+                });
+                scoresReader.lines().forEach(line ->{
                     String[] scores = line.split(";");
-                    raceService.createOrUpdate(new Race(scores[1],scores[2]));
+
+
 
                 });
             } catch (IOException e) {
