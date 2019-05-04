@@ -6,9 +6,10 @@ import pl.ziabski.app.repository.DriverRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Service
-public class DriverServiceImplementation  {
+public class DriverServiceImplementation {
 
     private DriverRepository repository;
 
@@ -28,13 +29,21 @@ public class DriverServiceImplementation  {
 
 
     public void delete(int id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (Exception e){
+            throw new RuntimeException("Could not find driver ID: " + id);
+
+
+        }
+
     }
-    public Optional<Driver> findDriverById(int id){
-        if (repository.findById(id).isPresent()){
+
+    public Optional<Driver> findDriverById(int id) {
+        if (repository.findById(id).isPresent()) {
             return repository.findById(id);
         } else {
-            throw new RuntimeException("Could not find driver ID: "+ id);
+            throw new RuntimeException("Could not find driver ID: " + id);
         }
     }
 

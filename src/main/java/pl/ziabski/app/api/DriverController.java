@@ -44,7 +44,7 @@ public class DriverController {
     public Driver updateDriver(@PathVariable int id, @RequestBody Driver driver){
         return service.findDriverById(id).map(driver1 -> {
             driver1.setFirstName(driver.getFirstName());
-            driver1.setLastName(driver.getFirstName());
+            driver1.setLastName(driver.getLastName());
             driver1.setCountry(driver.getCountry());
             return service.createOrUpdate(driver1);
         }).orElseGet(() -> {
