@@ -1,0 +1,233 @@
+Id_wyscigu;Rok;GrandPrix
+1;2000;Australia
+2;2000;Brazylia
+3;2000;San Marno
+4;2000;Wielka Brytania
+5;2000;Hiszpania
+6;2000;Europa
+7;2000;Monako
+8;2000;Kanada
+9;2000;Francja
+10;2000;Austria
+11;2000;Niemcy
+12;2000;Wegry
+13;2000;Belgia
+14;2000;Wlochy
+15;2000;USA
+16;2000;Japonia
+17;2000;Malezja
+18;2001;Australia
+19;2001;Malezja
+20;2001;Brazylia
+21;2001;San Marino
+22;2001;Hiszpania
+23;2001;Austria
+24;2001;Monako
+25;2001;Kanada
+26;2001;Europa
+27;2001;Francja
+28;2001;Wielka Brytania
+29;2001;Niemcy
+30;2001;Wegry
+31;2001;Belgia
+32;2001;Wlochy
+33;2001;USA
+34;2001;Japonia
+35;2002;Australia
+36;2002;Malezja
+37;2002;Brazylia
+38;2002;San Marino
+39;2002;Hiszpania
+40;2002;Austria
+41;2002;Monako
+42;2002;Kanada
+43;2002;Europa
+44;2002;Wielka Brytania
+45;2002;Francja
+46;2002;Niemcy
+47;2002;Wegry
+48;2002;Belgia
+49;2002;Wlochy
+50;2002;USA
+51;2002;Japonia
+52;2003;Australia
+53;2003;Malezja
+54;2003;Brazylia
+55;2003;San Marino
+56;2003;Hiszpania
+57;2003;Austria
+58;2003;Monako
+59;2003;Kanada
+60;2003;Europa
+61;2003;Francja
+62;2003;Wielka Brytania
+63;2003;Niemcy
+64;2003;Wegry
+65;2003;Wlochy
+66;2003;USA
+67;2003;Japonia
+68;2004;Australia
+69;2004;Malezja
+70;2004;Bahrain
+71;2004;San Marino
+72;2004;Hiszpania
+73;2004;Monako
+74;2004;Europa
+75;2004;Kanada
+76;2004;USA
+77;2004;Francja
+78;2004;Wielka Brytania
+79;2004;Niemcy
+80;2004;Wegry
+81;2004;Belgia
+82;2004;Wlochy
+83;2004;Chiny
+84;2004;Japonia
+85;2004;Brazylia
+86;2005;Australia
+87;2005;Malezja
+88;2005;Bahrain
+89;2005;San Marino
+90;2005;Hiszpania
+91;2005;Monako
+92;2005;Europa
+93;2005;Kanada
+94;2005;USA
+95;2005;Francja
+96;2005;Wielka Brytania
+97;2005;Niemcy
+98;2005;Wegry
+99;2005;Turcja
+100;2005;Wlochy
+101;2005;Belgia
+102;2005;Brazylia
+103;2005;Japonia
+104;2005;Chiny
+105;2006;Bahrain
+106;2006;Malezja
+107;2006;Australia
+108;2006;San Marino
+109;2006;Europa
+110;2006;Hiszpania
+111;2006;Monako
+112;2006;Wielka Brytania
+113;2006;Kanada
+114;2006;USA
+115;2006;Francja
+116;2006;Niemcy
+117;2006;Wegry
+118;2006;Turcja
+119;2006;Wlochy
+120;2006;Chiny
+121;2006;Japonia
+122;2006;Brazylia
+123;2007;Australia
+124;2007;Malezja
+125;2007;Bahrain
+126;2007;Hiszpania
+127;2007;Monako
+128;2007;Kanada
+129;2007;USA
+130;2007;Francja
+131;2007;Wielka Brytania
+132;2007;Europa
+133;2007;Wegry
+134;2007;Turcja
+135;2007;Wlochy
+136;2007;Belgia
+137;2007;Japonia
+138;2007;Chiny
+139;2007;Brazylia
+140;2008;Australia
+141;2008;Malezja
+142;2008;Bahrain
+143;2008;Hiszpania
+144;2008;Turcja
+145;2008;Monako
+146;2008;Kanada
+147;2008;Francja
+148;2008;Wielka Brytania
+149;2008;Niemcy
+150;2008;Wegry
+151;2008;Europa
+152;2008;Belgia
+153;2008;Wlochy
+154;2008;Singapur
+155;2008;Japonia
+156;2008;Chiny
+157;2008;Brazylia
+158;2009;Australia
+159;2009;Malezja
+160;2009;Chiny
+161;2009;Bahrain
+162;2009;Hiszpania
+163;2009;Monako
+164;2009;Turcja
+165;2009;Wielka Brytania
+166;2009;Niemcy
+167;2009;Wegry
+168;2009;Europa
+169;2009;Belgia
+170;2009;Wlochy
+171;2009;Singapur
+172;2009;Japonia
+173;2009;Brazylia
+174;2009;Abu Dhabi
+175;2010;Bahrain
+176;2010;Australia
+177;2010;Malezja
+178;2010;Chiny
+179;2010;Hiszpania
+180;2010;Monako
+181;2010;Turcja
+182;2010;Kanada
+183;2010;Europa
+184;2010;Wielka Brytania
+185;2010;Niemcy
+186;2010;Wegry
+187;2010;Belgia
+188;2010;Wlochy
+189;2010;Singapur
+190;2010;Japonia
+191;2010;Korea Poludniowa
+192;2010;Brazylia
+193;2010;Abu Dhabi
+194;2011;Australia
+195;2011;Malezja
+196;2011;Chiny
+197;2011;Turcja
+198;2011;Hiszpania
+199;2011;Monako
+200;2011;Kanada
+201;2011;Europa
+202;2011;Wielka Brytania
+203;2011;Niemcy
+204;2011;Wegry
+205;2011;Belgia
+206;2011;Wlochy
+207;2011;Singapur
+208;2011;Japonia
+209;2011;Korea Poludniowa
+210;2011;Indie
+211;2011;Abu Dhabi
+212;2011;Brazylia
+213;2012;Australia
+214;2012;Malezja
+215;2012;Chiny
+216;2012;Bahrain
+217;2012;Hiszpania
+218;2012;Monako
+219;2012;Kanada
+220;2012;Europa
+221;2012;Wielka Brytania
+222;2012;Niemcy
+223;2012;Wegry
+224;2012;Belgia
+225;2012;Wlochy
+226;2012;Singapur
+227;2012;Japonia
+228;2012;Korea Poludniowa
+229;2012;Indie
+230;2012;Abu Dhabi
+231;2012;USA
+232;2012;Brazylia
