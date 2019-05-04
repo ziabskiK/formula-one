@@ -18,10 +18,10 @@ public class Scores {
 
     private int points;
 
-    @ManyToOne
-    private Driver driver;
 
-
-
-
+    public Scores(int driver_id, int race_id, int points) {
+        this.driver_id = driver_id;
+        this.race_id = race_id;
+        this.points = points;
+    }
 }
