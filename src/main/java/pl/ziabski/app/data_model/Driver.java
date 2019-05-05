@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -13,6 +14,7 @@ public class Driver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "driver_id")
     private int id;
 
     private String firstName;
@@ -21,9 +23,8 @@ public class Driver {
 
     private String country;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "scores", joinColumns = @JoinColumn(name = "driver_id"), inverseJoinColumns = @JoinColumn(name = "race_id"))
-    private List<Race> race;
+    @OneToMany(mappedBy = "driver")
+    Set<RaceScores> points;
 
     public Driver(String firstName, String lastName, String country) {
         this.firstName = firstName;

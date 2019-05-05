@@ -1,6 +1,7 @@
 package pl.ziabski.app.service;
 
 import org.springframework.stereotype.Service;
+import pl.ziabski.app.data_model.RaceScores;
 import pl.ziabski.app.data_model.Scores;
 import pl.ziabski.app.repository.ScoreRepository;
 
@@ -12,7 +13,7 @@ public class ScoresService {
     public ScoresService(ScoreRepository scoreRepository) {
         this.scoreRepository = scoreRepository;
     }
-    public Scores createOrUpdate(Scores a){
+    public RaceScores createOrUpdate(RaceScores a){
         return scoreRepository.save(a);
     }
 }

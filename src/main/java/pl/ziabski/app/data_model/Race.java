@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -20,9 +21,8 @@ public class Race {
 
     private String grandPrix;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "scores", joinColumns = @JoinColumn(name = "race_id"), inverseJoinColumns = @JoinColumn(name = "driver_id"))
-    private List<Driver> drivers;
+    @OneToMany(mappedBy = "race")
+    Set<RaceScores> points;
 
     public Race(String raceYear, String grandPrix) {
         this.raceYear = raceYear;

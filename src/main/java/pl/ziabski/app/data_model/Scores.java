@@ -8,7 +8,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Table(name = "scores")
+@Entity
 public class Scores {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(name = "driver_id")
     private int driver_id;

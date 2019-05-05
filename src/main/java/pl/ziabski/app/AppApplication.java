@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import pl.ziabski.app.data_model.Driver;
 import pl.ziabski.app.data_model.Race;
+import pl.ziabski.app.data_model.RaceScores;
 import pl.ziabski.app.data_model.Scores;
 import pl.ziabski.app.service.DriverServiceImplementation;
 import pl.ziabski.app.service.RaceService;
@@ -62,10 +63,8 @@ public class AppApplication {
                 scoresReader.lines().forEach(line ->{
 
                     int[] scores = Stream.of(line.split(";")).mapToInt(Integer::parseInt).toArray();
-
-                    em.unwrap(Scores.class).setDriver_id(scores[0]);
-                    em.unwrap(Scores.class).setDriver_id(scores[1]);
-                    em.unwrap(Scores.class).setDriver_id(scores[2]);
+                    RaceScores r = new RaceScores(scores[0], scores[1], scores[2]);
+                    scoresService.createOrUpdate();
 
 
 
