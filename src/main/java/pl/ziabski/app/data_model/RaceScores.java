@@ -1,30 +1,31 @@
 package pl.ziabski.app.data_model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class RaceScores {
-    @EmbeddedId
-    private DriverRaceKey id;
 
-    @ManyToOne
-    @MapsId("race_id")
-    @JoinColumn(name = "race_id")
-    private Race race;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    @ManyToOne
-    @MapsId("driver_id")
-    @JoinColumn(name = "driver_id")
-    private Driver driver;
+    @Column(name = "driver_id")
+    private int driver_id;
+
+    @Column(name = "race_id")
+    private int race_id;
 
     private int points;
 
-    public RaceScores(Race race, Driver driver, int points) {
-        this.race = race;
-        this.driver = driver;
+    public RaceScores(int driver_id, int race_id, int points) {
+        this.driver_id = driver_id;
+        this.race_id = race_id;
         this.points = points;
     }
 }

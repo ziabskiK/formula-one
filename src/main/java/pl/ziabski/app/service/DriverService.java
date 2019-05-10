@@ -9,11 +9,11 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
-public class DriverServiceImplementation {
+public class DriverService {
 
     private DriverRepository repository;
 
-    public DriverServiceImplementation(DriverRepository repository) {
+    public DriverService(DriverRepository repository) {
         this.repository = repository;
     }
 

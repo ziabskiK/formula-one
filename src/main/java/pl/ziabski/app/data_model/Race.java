@@ -1,5 +1,6 @@
 package pl.ziabski.app.data_model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,9 +21,6 @@ public class Race {
     private String raceYear;
 
     private String grandPrix;
-
-    @OneToMany(mappedBy = "race")
-    Set<RaceScores> points;
 
     public Race(String raceYear, String grandPrix) {
         this.raceYear = raceYear;
