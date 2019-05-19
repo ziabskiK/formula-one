@@ -18,8 +18,10 @@ public class Race {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "race_year")
     private String raceYear;
 
+    @Column(name = "grand_prix")
     private String grandPrix;
 
     public Race(String raceYear, String grandPrix) {
