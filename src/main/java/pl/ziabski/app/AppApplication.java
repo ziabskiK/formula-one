@@ -8,15 +8,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import pl.ziabski.app.data_model.Driver;
 import pl.ziabski.app.data_model.Race;
-import pl.ziabski.app.data_model.RaceScores;
-import pl.ziabski.app.service.DriverService;
-import pl.ziabski.app.service.RaceService;
-import pl.ziabski.app.service.ScoresService;
+import pl.ziabski.app.data_model.Scores;
+import pl.ziabski.app.repository.DriverRepository;
+import pl.ziabski.app.repository.RaceRepository;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.stream.Stream;
+import java.util.Arrays;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "pl.ziabski.app.repository")
@@ -33,37 +29,49 @@ public class AppApplication {
      * New Race POJO
      */
     @Bean
-    CommandLineRunner runner(@Autowired DriverService repository, @Autowired RaceService raceService, @Autowired ScoresService scoresService) {
+    CommandLineRunner runner(@Autowired DriverRepository driverService, @Autowired RaceRepository raceService) {
 
         return args -> {
-            try (BufferedReader driversReader = new BufferedReader(new FileReader("Drivers.txt"));
-                 BufferedReader raceReader = new BufferedReader(new FileReader("Races.txt"));
-                 BufferedReader scoresReader = new BufferedReader(new FileReader("Scores.txt"))) {
+//            try (BufferedReader driversReader = new BufferedReader(new FileReader("Drivers.txt"));
+//                 BufferedReader raceReader = new BufferedReader(new FileReader("Races.txt"));
+//                 BufferedReader scoresReader = new BufferedReader(new FileReader("Scores.txt"))) {
+//
+//                driversReader.lines().forEach(line -> {
+//                    String[] driver = line.split(";");
+//                    Driver newDriver = new Driver(driver[1], driver[2], driver[3]);
+//                    repository.createOrUpdate(newDriver);
+//
+//                });
+//                raceReader.lines().forEach(line -> {
+//                    String[] races = line.split(";");
+//                    Race newRace = new Race(races[1], races[2]);
+//                    raceService.createOrUpdate(newRace);
+//                });
+//                scoresReader.lines().forEach(line -> {
+//
+//                    int[] scores = Stream.of(line.split(";")).mapToInt(Integer::parseInt).toArray();
+//
+//                    ScoresId r = new ScoresId(scores[0], scores[1], scores[2]);
+//
+//                    scoresService.createOrUpdate(r);
+//                });
 
-                driversReader.lines().forEach(line -> {
-                    String[] driver = line.split(";");
-                    Driver newDriver = new Driver(driver[1], driver[2], driver[3]);
-                    repository.createOrUpdate(newDriver);
-
-                });
-                raceReader.lines().forEach(line -> {
-                    String[] races = line.split(";");
-                    Race newRace = new Race(races[1], races[2]);
-                    raceService.createOrUpdate(newRace);
-                });
-                scoresReader.lines().forEach(line -> {
-
-                    int[] scores = Stream.of(line.split(";")).mapToInt(Integer::parseInt).toArray();
-
-                    RaceScores r = new RaceScores(scores[0], scores[1], scores[2]);
-
-                    scoresService.createOrUpdate(r);
-                });
 
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+            Driver driverA =  new Driver("Lewis", "Hamilton", "GB");
+            Driver driverB = new Driver("Fernando", "Alonso", "Spain");
+
+            driverService.saveAll(Arrays.asList(driverA, driverB));
+
+            raceService.save(new Race("2018", "Monaco", new Scores(driverA,10 ), new Scores(driverB, 5)));
+            raceService.save(new Race("2017", "Spain", new Scores(driverA, 25), new Scores(driverB, 17)));
+
+
+
+
 
         };
     }
