@@ -7,39 +7,41 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import pl.ziabski.app.data_model.Driver;
-import pl.ziabski.app.data_model.Race;
-import pl.ziabski.app.service.DriverServiceImplementation;
-import pl.ziabski.app.service.RaceService;
+import pl.ziabski.app.repository.DriverRepository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 @SpringBootApplication
-@EnableJpaRepositories( basePackages = "pl.ziabski.app.repository")
+@EnableJpaRepositories(basePackages = "pl.ziabski.app.repository")
 public class AppApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(AppApplication.class, args);
     }
 
+
+    /**
+     * Create BufferedReaders for data files. Create new database rows.
+     *
+     * @return New Driver POJO
+     * New Race POJO
+     */
     @Bean
-    CommandLineRunner runner(@Autowired DriverServiceImplementation repository, @Autowired RaceService raceService) {
+    CommandLineRunner runner(@Autowired DriverRepository driverService) {
+
         return args -> {
-            try (BufferedReader driversReader = new BufferedReader(new FileReader("Kierowcy.txt"));
-                    BufferedReader scoresReader = new BufferedReader(new FileReader("Wyscigi.txt"))) {
+//
+            try(BufferedReader driversReader = new BufferedReader(new FileReader("Drivers.txt"))){
                 driversReader.lines().forEach(line -> {
                     String[] driver = line.split(";");
-                    repository.createOrUpdate(new Driver(driver[1], driver[2], driver[3]));
+                    Driver newDriver = new Driver(driver[1], driver[2], driver[3]);
+                    driverService.save(newDriver);
                 });
-                scoresReader.lines().forEach(line -> {
-                    String[] scores = line.split(";");
-                    raceService.createOrUpdate(new Race(scores[1],scores[2]));
-
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException e){
+                System.out.println(e.getMessage());
             }
+
 
 
         };

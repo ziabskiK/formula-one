@@ -3,20 +3,21 @@ package pl.ziabski.app.api;
 
 import org.springframework.web.bind.annotation.*;
 import pl.ziabski.app.data_model.Driver;
-import pl.ziabski.app.service.DriverServiceImplementation;
+import pl.ziabski.app.service.DriverService;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class DriverController {
 
 
 
-    private DriverServiceImplementation service;
+    private DriverService service;
 
-    public DriverController(DriverServiceImplementation service) {
+    public DriverController(DriverService service) {
         this.service = service;
     }
 
@@ -52,4 +53,8 @@ public class DriverController {
             return service.createOrUpdate(driver);
         });
     }
+
+
+
+
 }
