@@ -1,19 +1,18 @@
 package pl.ziabski.app.data_model;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Entity
 @NoArgsConstructor
 @Data
 //@Table(name = "driver")
 public class Driver {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +27,7 @@ public class Driver {
     @Column(name = "country")
     private String country;
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
-    private Set<Scores> scores = new HashSet<>();
+
 
     public Driver(String firstName, String lastName, String country) {
         this.firstName = firstName;
@@ -38,11 +36,6 @@ public class Driver {
 
 
     }
-
-
-
-
-
 
 
 }

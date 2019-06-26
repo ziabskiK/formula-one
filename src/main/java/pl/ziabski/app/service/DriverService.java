@@ -2,14 +2,13 @@ package pl.ziabski.app.service;
 
 import org.springframework.stereotype.Service;
 import pl.ziabski.app.data_model.Driver;
-import pl.ziabski.app.data_model.Race;
 import pl.ziabski.app.repository.DriverRepository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 @Service
+
 public class DriverService {
 
     private DriverRepository repository;
